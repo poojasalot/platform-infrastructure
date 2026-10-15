@@ -1,3 +1,4 @@
 output "artifact_bucket_name" {
-  value = aws_s3_bucket.engineering_artifacts.bucket
+  description = "Name of the engineering artifact bucket"
+  value       = aws_s3_bucket.engineering_artifacts.bucket
 }

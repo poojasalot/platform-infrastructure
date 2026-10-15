@@ -1,13 +1,16 @@
 variable "aws_region" {
-  type    = string
-  default = "ap-south-1"
+  description = "AWS region for the infrastructure"
+  type        = string
+  default     = "eu-west-1"
 }
 
 variable "environment" {
-  type    = string
-  default = "dev"
+  description = "Deployment environment"
+  type        = string
+  default     = "dev"
 }
 
 variable "bucket_name" {
-  type = string
+  description = "Globally unique S3 bucket name"
+  type        = string
 }

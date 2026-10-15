@@ -1,39 +1,32 @@
-# Platform Infrastructure
+# AWS Infrastructure with Terraform
 
-Terraform-based AWS infrastructure for engineering platform services.
+## Objective
+
+Demonstrate Infrastructure as Code (IaC) using Terraform
+to define a reusable AWS artifact storage resource.
 
 ## Architecture
 
-The initial infrastructure provides:
+Terraform provisions an S3 bucket with versioning enabled.
 
-- AWS S3 for engineering artifacts
-- Versioning for artifact safety
-- Environment-based configuration
-- Terraform-managed infrastructure
+## Engineering Decisions
 
-## Design Principles
+- Infrastructure is defined declaratively.
+- Variables support environment-specific configuration.
+- Outputs expose resource information.
+- S3 versioning supports recovery from accidental object changes.
+- Resource tags support ownership and cost allocation.
 
-- Infrastructure as Code
-- Repeatable environments
-- Version-controlled infrastructure
-- Minimal manual configuration
-- Explicit ownership
-- Safe infrastructure changes
+## Validation
 
-## Production Evolution
+- `terraform fmt`
+- `terraform init -backend=false`
+- `terraform validate`
 
-A production implementation could extend this platform with:
+## Production Considerations
 
-- Remote Terraform state
-- State locking
-- IAM roles
-- VPC/networking
-- EKS
-- RDS
-- ElastiCache
-- CloudWatch
-- Secrets Manager
-- Multi-account environments
-- CI/CD controlled Terraform plans
-- Availability Zones
-- Multi-region support 
+Before production use, add remote state storage and state locking,
+least-privilege IAM, encryption, public-access blocking, lifecycle
+policies, monitoring, and an approved infrastructure deployment pipeline.
+
+No AWS resources need to be created to validate this configuration.
